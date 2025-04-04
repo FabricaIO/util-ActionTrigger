@@ -1,0 +1,25 @@
+{
+	"name": "util-ActionTrigger",
+	"version": "0.5.0",
+	"description": "Triggers an actions",
+	"keywords": "Fabrica-IO, utility, action",
+	"repository":
+	{
+	  "type": "git",
+	  "url": "https://github.com/FabricaIO/util-ActionTrigger.git"
+	},
+	"authors":
+	[
+	  {
+		"name": "Sam Groveman",
+		"email": "SamGroveman@outlook.com",
+		"url": "https://github.com/FabricaIO"
+	  }
+	],
+	"dependencies": {
+	  },
+	"license": "GPLv3",
+	"homepage": "https://github.com/FabricaIO",
+	"frameworks": "arduino",
+	"platforms": "*"
+  }
