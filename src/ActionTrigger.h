@@ -23,4 +23,6 @@ class ActionTrigger {
 		} actions_config;
 
 		bool triggerActions(std::map<String, std::map<String, String>> payloads);
+
+		std::map<String, std::map<int, String>> listAllActions();
 };
