@@ -15,9 +15,6 @@ class ActionTrigger {
 	public:
 		/// @brief Holds actions configuration
 		struct {			
-			/// @brief A set of actor names and action names to trigger
-			std::map<String, std::vector<String>> Actions;
-
 			/// @brief Whether to enable auto triggering or not
 			bool Enabled;			
 		} actions_config;

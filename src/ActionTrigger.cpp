@@ -1,19 +1,24 @@
 #include "ActionTrigger.h"
 
 /// @brief Triggers all actions with given payloads
+/// @param Actions The map of actors and a map of their given actions and payloads
 /// @return True on success
-bool ActionTrigger::triggerActions(std::map<String, std::map<String, String>> payloads) {
-	for (const auto& actor : actions_config.Actions) {
-		for (const auto& action : actor.second ) {
-			if (!ActorManager::addActionToQueue(actor.first, action, payloads[actor.first][action])){
-				return false;
+bool ActionTrigger::triggerActions(std::map<String, std::map<String, String>> Actions) {
+	if (actions_config.Enabled) {
+		for (const auto& actor : Actions) {
+			for (const auto& action : actor.second ) {
+				if (!ActorManager::addActionToQueue(actor.first, action.first, action.second)){
+					return false;
+				}
 			}
 		}
+		return true;
+	} else {
+		return false;
 	}
-	return true;
 }
 
-/// @brief Returns a collections of all actors and actions available
+/// @brief Returns a collection of all actors and actions available
 /// @return A map with eacha actor and it's avaialble action names and IDs
 std::map<String, std::map<int, String>>  ActionTrigger::listAllActions() {
 	std::vector<Actor*> actors = ActorManager::getActors();
