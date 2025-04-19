@@ -13,7 +13,7 @@ bool ActionTrigger::triggerActions(std::map<String, std::map<String, String>> Ac
 						return false;
 					}
 				} else {
-					if (std::get<1>(ActorManager::processActionImmediately(actor.first, action.first, action.second)) == R"({"success": false})"){
+					if (std::get<1>(ActorManager::processActionImmediately(actor.first, action.first, action.second)).indexOf(R"("success": false)") != -1){
 						return false;
 					}
 				}
