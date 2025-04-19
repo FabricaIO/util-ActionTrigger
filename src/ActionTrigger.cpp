@@ -2,13 +2,20 @@
 
 /// @brief Triggers all actions with given payloads
 /// @param Actions The map of actors and a map of their given actions and payloads
+/// @param executeImmdiately If true, actions are executed immidately instead of being added to the queue
 /// @return True on success
-bool ActionTrigger::triggerActions(std::map<String, std::map<String, String>> Actions) {
+bool ActionTrigger::triggerActions(std::map<String, std::map<String, String>> Actions, bool executeImmdiately) {
 	if (actions_config.Enabled) {
 		for (const auto& actor : Actions) {
 			for (const auto& action : actor.second ) {
-				if (!ActorManager::addActionToQueue(actor.first, action.first, action.second)){
-					return false;
+				if (!executeImmdiately) {
+					if (!ActorManager::addActionToQueue(actor.first, action.first, action.second)){
+						return false;
+					}
+				} else {
+					if (std::get<1>(ActorManager::processActionImmediately(actor.first, action.first, action.second)) == R"({"success": false})"){
+						return false;
+					}
 				}
 			}
 		}

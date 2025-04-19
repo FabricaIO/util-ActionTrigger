@@ -15,11 +15,11 @@ class ActionTrigger {
 	public:
 		/// @brief Holds actions configuration
 		struct {			
-			/// @brief Whether to enable auto triggering or not
+			/// @brief Whether to enable triggering or not
 			bool Enabled;			
 		} actions_config;
 
-		bool triggerActions(std::map<String, std::map<String, String>> payloads);
+		bool triggerActions(std::map<String, std::map<String, String>> Actions, bool executeImmdiately = false);
 
 		std::map<String, std::map<int, String>> listAllActions();
 };
