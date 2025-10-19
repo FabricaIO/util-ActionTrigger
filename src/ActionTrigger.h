@@ -19,7 +19,7 @@ class ActionTrigger {
 			bool Enabled;			
 		} actions_config;
 
-		bool triggerActions(std::map<String, std::map<String, String>> Actions, bool executeImmdiately = false);
+		bool triggerActions(std::map<String, std::map<String, String>> Actions, bool executeImmediately = false);
 
 		std::map<String, std::map<int, String>> listAllActions();
 };
