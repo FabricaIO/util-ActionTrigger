@@ -16,7 +16,7 @@ class ActionTrigger {
 		/// @brief Holds actions configuration
 		struct {			
 			/// @brief Whether to enable triggering or not
-			bool Enabled;			
+			bool Enabled = false;			
 		} actions_config;
 
 		bool triggerActions(std::map<String, std::map<String, String>> Actions, bool executeImmediately = false);
